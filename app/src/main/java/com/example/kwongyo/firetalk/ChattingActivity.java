@@ -1,10 +1,13 @@
 package com.example.kwongyo.firetalk;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,14 +32,18 @@ public class ChattingActivity extends AppCompatActivity {
 
     ArrayList<ChattingData> datas = new ArrayList<ChattingData>();
 
-
+    private InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting);
         ButterKnife.bind(this);
+        initAnother();
+        inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 
+    }
+    public void initAnother(){
         /*
          recyclerView.setHasFixedSize(isFixed boolean)
         ->use this setting to improve performance if you know that changes
@@ -46,7 +53,7 @@ public class ChattingActivity extends AppCompatActivity {
 
         //use a linear layout manager.
         layoutManager = new LinearLayoutManager(this);
-        ((LinearLayoutManager)layoutManager).setOrientation(LinearLayoutManager.VERTICAL);
+
         // layou manager set
         recyclerView.setLayoutManager(layoutManager);
 
@@ -73,9 +80,17 @@ public class ChattingActivity extends AppCompatActivity {
         else // 글자가 한글자도 써있지 않는 경우.
             sendBtn.setVisibility(View.GONE);
     }
+    public static String lastAskPerson = "";
     @OnClick(R.id.send_btn)
     public void sendBtnClick(View v) {
         Toast.makeText(getApplicationContext(),typingMessage.getText().toString(),Toast.LENGTH_SHORT).show();
-        adapter.add(new ChattingData(R.drawable.icon_profile,"송블리",typingMessage.getText().toString()));
+        adapter.add(new ChattingData(R.drawable.icon_profile,"송블리",typingMessage.getText().toString() , lastAskPerson.equals("송블리") ));
+        lastAskPerson = "송블리";
+    }
+
+    @OnClick(R.id.icon_btn)
+    public void iconBtnClick(View v){
+        if( inputMethodManager.isAcceptingText() )  // 만약 키보드가 활성화중이라면
+            inputMethodManager.hideSoftInputFromWindow(typingMessage.getWindowToken(), 0);
     }
 }

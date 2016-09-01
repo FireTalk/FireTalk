@@ -42,4 +42,8 @@ public abstract class CustomAdapter <T, VH extends RecyclerView.ViewHolder> exte
     @Override
     public int getItemCount() { return list.size(); }
     public List<T> getItems() { return list; }
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }

@@ -7,9 +7,11 @@ public class ChattingData {
     public int anotherProfileImage;
     public String anotherName;
     public String anotherTextMessage;
-    public ChattingData(int anotherProfileImage , String anotherName , String anotherTextMessage) {
+    public boolean isSamePerson;
+    public ChattingData(int anotherProfileImage , String anotherName , String anotherTextMessage , boolean isSamePerson) {
         this.anotherProfileImage = anotherProfileImage;
         this.anotherTextMessage = anotherTextMessage;
         this.anotherName=anotherName;
+        this.isSamePerson = isSamePerson;
     }
 }
