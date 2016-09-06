@@ -5,81 +5,117 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LoginActivity"
-    android:background="#dc4e48"
+    android:background="#ffffff"
     >
     <ImageView
         android:id="@+id/login_logo"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp"
-        android:background="#55ffffff"
+        android:background="#55999999"
         />
     <EditText
         android:id="@+id/email_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="hottalk@hotmail.com"
+        android:paddingLeft="63dp"
+        android:backgroundTint="#252525"
+        android:textColorHint="#4d252525"
+        android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:hint="이메일 아이디"
-        android:backgroundTint="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
-        android:layout_centerVertical="true"
-
+        />
+    <TextView
+        android:id="@+id/id_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/email_id"
+        android:layout_alignBaseline="@id/email_id"
+        android:textColor="#252525"
+        android:text="아이디"
         />
     <EditText
-        android:layout_below="@id/email_id"
         android:id="@+id/password"
+        android:layout_below="@id/email_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="63dp"
+        android:hint="영문,숫자 혼용 4~6자리"
+        android:backgroundTint="#252525"
+        android:textColorHint="#4d252525"
+        android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:hint="비밀번호"
-        android:backgroundTint="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"
+        android:textColor="#252525"
+        android:layout_alignBaseline="@id/password"
+        android:layout_alignLeft="@id/password"
+        />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_below="@id/password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="로그인"
+        android:textColor="#252525"
+        android:background="@drawable/registent_button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        />
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/login_btn"
+        android:text="회원가입"
+        android:textColor="#ffffff"
+        android:background="#252525"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         />
     <LinearLayout
-        android:id="@+id/button_linear"
-        android:layout_below="@id/password"
+        android:id="@+id/service_menu"
+        android:layout_below="@id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:weightSum="3"
         >
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="로그인"
-            android:textColor="#dc4e48"
-            android:background="#ffffff"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비회원 입장"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디 찾기"
+            android:layout_weight="1"
+            android:background="@drawable/login_service_menu"
+            android:gravity="center_horizontal"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 찾기"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            />
 
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="20dp"
-            />
-        <Button
-            android:id="@+id/register_btn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="회원가입"
-            android:textColor="#ffffff"
-            android:background="@drawable/registent_button"
-            android:layout_weight="1"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="2dp"
-            />
+
     </LinearLayout>
-    <TextView
-        android:layout_below="@id/button_linear"
-        android:id="@+id/forget_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="비밀번호를 잊으셨나요?"
-        android:textColor="#ffffff"
-        android:layout_marginTop="15dp"
-        />
 
 </RelativeLayout>

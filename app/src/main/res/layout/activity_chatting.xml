@@ -11,22 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-6dp"
-        android:background="#1E8ADC"
+        android:background="#FFFFFF"
         >
-        <TextView
+        <ImageView
             android:id="@+id/catting_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="("
+            android:src="@drawable/back_btn"
             android:padding="10dp"
             android:layout_centerVertical="true"
             />
         <TextView
             android:id="@+id/talking_room_title"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/catting_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="질투의 화신 3화"
             />
         <ImageView
@@ -39,13 +39,61 @@
             android:src="@drawable/icon_profile"
             />
     </RelativeLayout>
+    <View
+        android:id="@+id/divide_actionbar_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@id/catting_action_bar"
+        android:background="#000000"
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_recyclerview"
         android:layout_below="@id/catting_action_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="40dp"
+        android:scrollbars="vertical"
         />
+    <RelativeLayout
+        android:id="@+id/chatting_preview"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_alignBottom="@id/chat_recyclerview"
+        android:layout_marginBottom="14.6dp"
+        android:visibility="gone"
+        android:background="@drawable/preview_box"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/preview_profile_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="9.6dp"
+            />
+        <TextView
+            android:id="@+id/preview_text_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="43.4dp"
+            android:layout_toRightOf="@id/preview_profile_image"
+            android:layout_marginLeft="11dp"
+            />
+        <ImageView
+            android:id="@+id/preview_arrow_btn"
+            android:layout_width="16dp"
+            android:layout_height="13dp"
+            android:layout_marginRight="10.9dp"
+            android:src="@drawable/preview_arrow_btn"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -61,7 +109,6 @@
             android:padding="2dp"
             android:layout_marginLeft="-5dp"
             android:layout_centerVertical="true"
-
             />
         <EditText
             android:id="@+id/typing_message"

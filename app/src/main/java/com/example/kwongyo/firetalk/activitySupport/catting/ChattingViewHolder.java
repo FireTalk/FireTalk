@@ -1,5 +1,6 @@
 package com.example.kwongyo.firetalk.activitySupport.catting;
 
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,6 +28,9 @@ public class ChattingViewHolder extends CustomViewHolder<ChattingData> {
     public void onBindView(ChattingData data) {
         this.anotherName.setText(data.anotherName);
         this.anotherTextMessage.setText(data.anotherTextMessage);
-
+    }
+    public void onBindView(ChattingData data,Context context) {
+        onBindView(data);
+        Glide.with(context).load(data.anotherProfileImage).into(this.anotherProfileImage);
     }
 }

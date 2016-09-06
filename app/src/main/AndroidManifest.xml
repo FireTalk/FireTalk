@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
-            android:name=".ChattingActivity"
+            android:name=".LoginActivity"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".RegisterActivity" >
         </activity>
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".ChattingActivity" >
         </activity>
         <activity
             android:name=".ProfileActivity"

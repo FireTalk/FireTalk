@@ -2,6 +2,7 @@ package com.example.kwongyo.firetalk.activitySupport;
 
 import android.content.Context;
 
+import android.support.annotation.DimenRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.kwongyo.firetalk.R;
 import com.example.kwongyo.firetalk.activitySupport.catting.ChattingContinueViewHolder;
+import com.example.kwongyo.firetalk.activitySupport.catting.ChattingMeViewHolder;
 import com.example.kwongyo.firetalk.activitySupport.catting.ChattingViewHolder;
 
 import java.util.List;
@@ -24,7 +26,7 @@ import java.util.List;
  */
 public class ChattingAdapter extends CustomAdapter <ChattingData , CustomViewHolder> {
 
-
+    public static int activeNode = 0;
     //provide a suitable cons ( depends on the kind of dataset)
     public ChattingAdapter(Context context, List<ChattingData> lists) {
         super( context , lists );
@@ -34,17 +36,25 @@ public class ChattingAdapter extends CustomAdapter <ChattingData , CustomViewHol
     * */
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent , int viewType) {
-        if( list.get(viewType).isSamePerson ) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_another_continue, parent , false);
-            ChattingContinueViewHolder viewHolder = new ChattingContinueViewHolder(v);
-            return viewHolder;
-        }
-        else {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_another, parent, false);
-            ChattingViewHolder viewHolder = new ChattingViewHolder(v);
-            return viewHolder;
-        }
+        switch (list.get(viewType).personInfo) {
+            case SAME :
+                View continueView = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_another_continue, parent , false);
+                ChattingContinueViewHolder continueViewHolder = new ChattingContinueViewHolder(continueView);
+                continueView.findFocus();
+                return continueViewHolder;//break;
 
+            case ANOTHER:
+                View anotherView = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_another, parent, false);
+                ChattingViewHolder anotherViewHolder = new ChattingViewHolder(anotherView);
+                anotherView.findFocus();
+                return anotherViewHolder;//break;
+            case ME:
+                View meView = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_me , parent , false);
+                ChattingMeViewHolder meViewHolder = new ChattingMeViewHolder(meView);
+                return meViewHolder;//break;
+            default:
+                return null;
+        }
     }
 
     /*
@@ -52,15 +62,24 @@ public class ChattingAdapter extends CustomAdapter <ChattingData , CustomViewHol
      */
     @Override
     public void onBindViewHolder(CustomViewHolder holder,int position) {
-        if( list.get(position).isSamePerson ) {
-            ChattingContinueViewHolder h = (ChattingContinueViewHolder)holder;
-            h.onBindView(list.get(position).anotherTextMessage);
-        } else {
-            ChattingViewHolder h = ( ChattingViewHolder )holder;
-            h.onBindView(list.get(position));
-            Glide.with(context).load(list.get(position).anotherProfileImage).into(h.anotherProfileImage);
+        activeNode = position;
+        switch (list.get(position).personInfo) {
+            case SAME :
+                ChattingContinueViewHolder continueHolder = (ChattingContinueViewHolder)holder;
+                continueHolder.onBindView( list . get(position) . anotherTextMessage );
+                break;
+            case ANOTHER :
+                ChattingViewHolder anotherHolder = ( ChattingViewHolder )holder;
+                anotherHolder.onBindView( list . get(position) , context );
+                break;
+            case ME:
+                ChattingMeViewHolder meHolder = (ChattingMeViewHolder) holder;
+                meHolder.onBindView( list . get(position) . anotherTextMessage );
+                break;
+            default :
+                Log.e("onBindViewHolder","not connected");
+                break;
         }
-
     }
     @Override
     public int getItemCount(){
