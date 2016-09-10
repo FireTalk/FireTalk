@@ -66,7 +66,7 @@ public class ChattingActivity extends AppCompatActivity {
             public void run(){
                 while(true) {
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(2000);
                         runOnUiThread(new Runnable(){
                             public void run(){
 
