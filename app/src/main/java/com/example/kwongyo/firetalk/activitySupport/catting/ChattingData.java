@@ -1,4 +1,4 @@
-package com.example.kwongyo.firetalk.activitySupport;
+package com.example.kwongyo.firetalk.activitySupport.catting;
 
 /**
  * Created by kwongyo on 2016-08-29.

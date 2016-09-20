@@ -1,15 +1,15 @@
 package com.example.kwongyo.firetalk.activitySupport.catting;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.kwongyo.firetalk.ChattingActivity;
+
 import com.example.kwongyo.firetalk.R;
-import com.example.kwongyo.firetalk.activitySupport.ChattingData;
+
 import com.example.kwongyo.firetalk.activitySupport.CustomViewHolder;
 
 /**

@@ -1,8 +1,6 @@
 package com.example.kwongyo.firetalk;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,13 +10,12 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.kwongyo.firetalk.activitySupport.ChattingAdapter;
-import com.example.kwongyo.firetalk.activitySupport.ChattingData;
+import com.example.kwongyo.firetalk.activitySupport.catting.ChattingAdapter;
+import com.example.kwongyo.firetalk.activitySupport.catting.ChattingData;
 
 import java.util.ArrayList;
 
@@ -36,6 +33,11 @@ public class ChattingActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ChattingAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
+    /*
+     * Map속의 ArrayList로 바꿔야됌.
+     * 각 채팅방마다 사용자가 마지막으로 들렀을 방이 있으니까
+     * 그 방에 대해서 access 하는게 좋을듯.
+     */
     private static ArrayList<ChattingData> saveChattingData ;
 
     ArrayList<ChattingData> datas = new ArrayList<ChattingData>();

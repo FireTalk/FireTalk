@@ -1,30 +1,22 @@
-package com.example.kwongyo.firetalk.activitySupport;
+package com.example.kwongyo.firetalk.activitySupport.catting;
 
 import android.content.Context;
 
-import android.support.annotation.DimenRes;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.kwongyo.firetalk.R;
-import com.example.kwongyo.firetalk.activitySupport.catting.ChattingContinueViewHolder;
-import com.example.kwongyo.firetalk.activitySupport.catting.ChattingMeViewHolder;
-import com.example.kwongyo.firetalk.activitySupport.catting.ChattingViewHolder;
+import com.example.kwongyo.firetalk.activitySupport.CustomAdapter;
+import com.example.kwongyo.firetalk.activitySupport.CustomViewHolder;
 
 import java.util.List;
 
 /**
  * Created by kwongyo on 2016-08-29.
  */
-public class ChattingAdapter extends CustomAdapter <ChattingData , CustomViewHolder> {
+public class ChattingAdapter extends CustomAdapter<ChattingData , CustomViewHolder> {
 
     public static int activeNode = 0;
     //provide a suitable cons ( depends on the kind of dataset)
@@ -40,7 +32,7 @@ public class ChattingAdapter extends CustomAdapter <ChattingData , CustomViewHol
             case SAME :
                 View continueView = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_another_continue, parent , false);
                 ChattingContinueViewHolder continueViewHolder = new ChattingContinueViewHolder(continueView);
-                continueView.findFocus();
+                continueView.findFocus(); // 의미없음 ??
                 return continueViewHolder;//break;
 
             case ANOTHER:
