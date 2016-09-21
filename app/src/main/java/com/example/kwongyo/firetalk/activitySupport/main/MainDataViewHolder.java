@@ -2,6 +2,7 @@ package com.example.kwongyo.firetalk.activitySupport.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.example.kwongyo.firetalk.MainActivity;
 import com.example.kwongyo.firetalk.DramaListActivity;
 import com.example.kwongyo.firetalk.R;
 import com.example.kwongyo.firetalk.activitySupport.CustomViewHolder;
+import com.example.kwongyo.firetalk.activitySupport.FontFactory;
 import com.example.kwongyo.firetalk.model.CustomPreference;
 
 import butterknife.Bind;
@@ -56,10 +58,16 @@ public class MainDataViewHolder extends CustomViewHolder<MainData> {
     @BindDrawable(R.drawable.bookmark_true)
     Drawable bookmarkTrue;
 
+
+
     public static CustomPreference customPreference;
+
     public MainDataViewHolder(View v) {
         super(v);
         ButterKnife.bind(this,v);
+
+        broadcastName.setTypeface(FontFactory.getFont(MainActivity.context, FontFactory.Font.NOTOSANS_BOLD));
+        broadcastDescription.setTypeface(FontFactory.getFont(MainActivity.context,FontFactory.Font.NOTOSANS_REGULAR));
         if ( customPreference == null )
             customPreference = CustomPreference.getInstance(v.getContext());
     }

@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
+import com.example.kwongyo.firetalk.activitySupport.FontFactory;
 import com.example.kwongyo.firetalk.activitySupport.dramalist.DramaListAdapter;
 import com.example.kwongyo.firetalk.activitySupport.dramalist.DramaData;
 
@@ -24,6 +26,9 @@ public class DramaListActivity extends AppCompatActivity {
     RecyclerView mdlRcycler;
     DramaListAdapter dramaListAdapter;
     RecyclerView.LayoutManager layoutManager;
+
+    @Bind(R.id.drama_title)
+    TextView dramaTitle;
     private static ArrayList<DramaData> datas = new ArrayList<DramaData>();
 
     public static Context context;
@@ -33,6 +38,8 @@ public class DramaListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drama_list);
         ButterKnife.bind(this);
+
+        dramaTitle.setTypeface(FontFactory.getFont(getApplicationContext(), FontFactory.Font.NOTOSANS_BOLD));
 
         context = getApplicationContext();
         layoutManager = new LinearLayoutManager(this);

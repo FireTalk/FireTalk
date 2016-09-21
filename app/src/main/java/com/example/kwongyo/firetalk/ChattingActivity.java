@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.kwongyo.firetalk.activitySupport.FontFactory;
 import com.example.kwongyo.firetalk.activitySupport.catting.ChattingAdapter;
 import com.example.kwongyo.firetalk.activitySupport.catting.ChattingData;
 
@@ -42,6 +43,9 @@ public class ChattingActivity extends AppCompatActivity {
 
     ArrayList<ChattingData> datas = new ArrayList<ChattingData>();
 
+    @Bind(R.id.talking_room_title)
+    TextView talkingRoomTitle;
+
     /* 키보드 */
     private InputMethodManager inputMethodManager;
 
@@ -52,6 +56,9 @@ public class ChattingActivity extends AppCompatActivity {
     TextView previewTextMessage;
     @Bind(R.id.chatting_preview)
     RelativeLayout chattingPreview;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +66,8 @@ public class ChattingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         context = getApplicationContext();
+
+        talkingRoomTitle.setTypeface(FontFactory.getFont(getApplicationContext() , FontFactory.Font.NOTOSANS_BOLD));
 
         initAnother();
         inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -224,6 +233,10 @@ public class ChattingActivity extends AppCompatActivity {
     public void chattingPreview(View v) {
         recyclerView.smoothScrollToPosition( adapter.getItemCount() ); //맨 아래로 ㄱㄱ!
         chattingPreview.setVisibility(View.GONE);
+    }
+    @OnClick(R.id.catting_back_btn)
+    public void backButtonClick(View v) {
+        finish();
     }
 
 

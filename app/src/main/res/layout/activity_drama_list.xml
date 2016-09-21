@@ -16,16 +16,34 @@
             android:src="@drawable/back_btn"
             android:layout_centerVertical="true"
             android:padding="5dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="8dp"
             />
         <TextView
             android:id="@+id/drama_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="temp"
+            android:text="질투의화신"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:textColor="#252525"
+            />
+        <ImageView
+            android:id="@+id/empty_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_emptyheart"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/empty_heart"
+            android:src="@drawable/icon_fillheart"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4dp"
             />
     </RelativeLayout>
     <LinearLayout
@@ -44,7 +62,7 @@
             android:layout_marginLeft="3dp"
             />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="회차별 섬네일 이미지 출처 페이지 링크 - "
             android:layout_gravity="center_vertical"
@@ -57,6 +75,7 @@
             android:textSize="10sp"
             android:text="MBC 다시보기"
             android:background="@drawable/underline_bar"
+            android:layout_gravity="center_vertical"
             />
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

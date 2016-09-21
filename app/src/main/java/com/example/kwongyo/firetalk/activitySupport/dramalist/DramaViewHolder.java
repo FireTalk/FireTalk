@@ -10,11 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.example.kwongyo.firetalk.ChattingActivity;
 import com.example.kwongyo.firetalk.DramaListActivity;
 import com.example.kwongyo.firetalk.MainActivity;
 import com.example.kwongyo.firetalk.R;
 import com.example.kwongyo.firetalk.activitySupport.CustomViewHolder;
+import com.example.kwongyo.firetalk.activitySupport.FontFactory;
 import com.example.kwongyo.firetalk.model.CustomPreference;
 
 import butterknife.Bind;
@@ -53,6 +55,8 @@ public class DramaViewHolder extends CustomViewHolder<DramaData> {
     public DramaViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this,itemView);
+        dramaCountInfomation.setTypeface(FontFactory.getFont(DramaListActivity.context , FontFactory.Font.ROBOTO_BOLD ));
+        dramaBroadcastDay.setTypeface(FontFactory.getFont(DramaListActivity.context , FontFactory.Font.ROBOTO_REQULAR));
         if(customPreference == null)
             customPreference = CustomPreference.getInstance(itemView.getContext());
     }
