@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.kwongyo.firetalk.activitySupport.FontFactory;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,26 +24,51 @@ public class LoginActivity extends AppCompatActivity {
     public void loginBtn(View v) {
         startActivity(new Intent().setClass(getApplicationContext(),MainActivity.class));
     }
+    @Bind(R.id.register_linear)
+    LinearLayout registerLinear;
+    @Bind(R.id.register_btn)
+    Button registerBtn;
     @OnClick(R.id.register_btn)
     public void registerBtnClick(View v){
-        Intent intent = new Intent();
-        intent.setClass(getApplicationContext(),RegisterActivity.class);
-        startActivity(intent);
+        registerBtn.setVisibility(View.GONE);
+        registerLinear.setVisibility(View.VISIBLE);
     }
     @Bind(R.id.login_logo)
     ImageView loginLogo;
+
+    @Bind(R.id.login_description)
+    TextView loginDescription;
+
+    @Bind(R.id.id_description)
+    TextView idDescription;
+
+    @Bind(R.id.password_description)
+    TextView passwordDescription;
+
+    @Bind(R.id.login_btn)
+    Button loginBtn;
+
+    @Bind(R.id.forget_password)
+    TextView forgetPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        Glide.with(this).load("http://img2.sbs.co.kr/img/sbs_cms/WE/2016/06/14/WE92163312_ori.jpg").diskCacheStrategy(DiskCacheStrategy.RESULT).into(loginLogo);
+
+        loginDescription.setTypeface(FontFactory.getFont(getApplicationContext() , FontFactory.Font.NOTOSANS_BOLD )); // 이거 아님 이거 임시임.
+        idDescription.setTypeface(FontFactory.getFont(getApplicationContext() , FontFactory.Font.NOTOSANS_BOLD ));
+        passwordDescription.setTypeface(FontFactory.getFont(getApplicationContext() , FontFactory.Font.NOTOSANS_BOLD ));
+        loginBtn.setTypeface(FontFactory.getFont(getApplicationContext(),FontFactory.Font.NOTOSANS_BOLD ));
+        registerBtn.setTypeface(FontFactory.getFont(getApplicationContext(),FontFactory.Font.NOTOSANS_BOLD ));
+        forgetPassword.setTypeface(FontFactory.getFont(getApplicationContext(),FontFactory.Font.NOTOSANS_REGULAR ));
+
+
 
     }
     @OnClick(R.id.login_logo)
     public void loginLogoClick(View v){
-        Toast.makeText(getApplicationContext(),"login_logo Click",Toast.LENGTH_SHORT).show();
-        Glide.with(this).load("http://img2.sbs.co.kr/img/sbs_cms/WE/2016/06/14/WE92163312_ori.jpg").diskCacheStrategy(DiskCacheStrategy.RESULT).into(loginLogo);
+        finish();
     }
 
     @Override
@@ -48,4 +76,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onPause();
         overridePendingTransition(R.anim.activity_start_first, R.anim.activity_start_second);// 화면 이동 시 애니메이션.
     }
+
+    @OnClick(R.id.register_email_btn)
+    public void registerEmailBtnClick(View v) {
+        startActivity(new Intent(getApplicationContext() , EmailAuthActivity.class ));
+    }
+    @OnClick(R.id.forget_password)
+    public void forgetPasswordClick(View v) {
+        startActivity(new Intent(getApplicationContext() , FindPWActivity.class ));
+    }
+
 }

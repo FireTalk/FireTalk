@@ -11,12 +11,12 @@
         >
         <ImageView
             android:id="@+id/mdl_back_btn"
-            android:layout_width="32dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/back_btn"
             android:layout_centerVertical="true"
-            android:padding="5dp"
-            android:layout_marginLeft="8dp"
+            android:padding="13dp"
+
             />
         <TextView
             android:id="@+id/drama_title"
@@ -35,7 +35,7 @@
             android:src="@drawable/icon_emptyheart"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="10dp"
             />
         <ImageView
             android:layout_width="wrap_content"

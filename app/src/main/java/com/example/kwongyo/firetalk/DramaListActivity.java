@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.kwongyo.firetalk.activitySupport.FontFactory;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by kwongyo on 2016-09-16.
@@ -57,5 +59,9 @@ public class DramaListActivity extends AppCompatActivity {
                             R.drawable.icon_clock
             ));
         }
+    }
+    @OnClick(R.id.mdl_back_btn)
+    public void mdlBackBtn(View v) {
+        finish();
     }
 }

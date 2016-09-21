@@ -2,11 +2,13 @@ package com.example.kwongyo.firetalk;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.example.kwongyo.firetalk.activitySupport.main.MainAdapter;
 import com.example.kwongyo.firetalk.activitySupport.main.MainData;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
+import butterknife.OnClick;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         mainActivityRecyler.setLayoutManager(layoutManager);
         mainAdapter = new MainAdapter ( getApplicationContext() , datas );
         mainActivityRecyler.setAdapter(mainAdapter);
-
         for(int i=0;i<6;i++) {
             MainData mainData = new MainData(tempLink[i],tempDramaName.split(",")[i],R.drawable.bookmark_false,R.drawable.sbs,tempDramaTime.split(",")[i]);
             mainAdapter.add(mainData);
@@ -62,5 +63,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         overridePendingTransition(R.anim.activity_end_first, R.anim.activity_end_second);// 화면 이동 시 애니메이션.
+    }
+
+    @OnClick(R.id.is_login)
+    public void moveTheLoginPage(View v) {
+        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
     }
 }
