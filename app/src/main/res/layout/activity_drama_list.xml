@@ -16,7 +16,6 @@
             android:src="@drawable/back_btn"
             android:layout_centerVertical="true"
             android:padding="13dp"
-
             />
         <TextView
             android:id="@+id/drama_title"
@@ -85,6 +84,4 @@
         android:layout_below="@id/mdl_action_bar"
         android:layout_above="@id/copyright"
         />
-
-
 </RelativeLayout>

@@ -239,6 +239,20 @@ public class ChattingActivity extends AppCompatActivity {
     public void backButtonClick(View v) {
         finish();
     }
+    @Bind(R.id.is_emotion_true)
+    ImageView isEmotionTrue;
+    @OnClick(R.id.is_emotion_true)
+    public void isemotionTrue(View v) {
+        isEmotionTrue.setVisibility(View.GONE);
+        isEmotionFalse.setVisibility(View.VISIBLE);
+    }
+    @Bind(R.id.is_emotion_false)
+    ImageView isEmotionFalse;
+    @OnClick(R.id.is_emotion_false)
+    public void isemotionFalse(View v) {
+        isEmotionFalse.setVisibility(View.GONE);
+        isEmotionTrue.setVisibility(View.VISIBLE);
+    }
 
 
 }

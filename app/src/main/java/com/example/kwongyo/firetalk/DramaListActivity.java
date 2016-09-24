@@ -22,46 +22,46 @@ import butterknife.OnClick;
 /**
  * Created by kwongyo on 2016-09-16.
  */
-public class DramaListActivity extends AppCompatActivity {
+    public class DramaListActivity extends AppCompatActivity {
 
-    @Bind(R.id.mdl_recycler)
-    RecyclerView mdlRcycler;
-    DramaListAdapter dramaListAdapter;
-    RecyclerView.LayoutManager layoutManager;
+        @Bind(R.id.mdl_recycler)
+        RecyclerView mdlRcycler;
+        DramaListAdapter dramaListAdapter;
+        RecyclerView.LayoutManager layoutManager;
 
-    @Bind(R.id.drama_title)
-    TextView dramaTitle;
-    private static ArrayList<DramaData> datas = new ArrayList<DramaData>();
+        @Bind(R.id.drama_title)
+        TextView dramaTitle;
+        private static ArrayList<DramaData> datas = new ArrayList<DramaData>();
 
-    public static Context context;
+        public static Context context;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drama_list);
-        ButterKnife.bind(this);
+        @Override
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_drama_list);
+            ButterKnife.bind(this);
 
-        dramaTitle.setTypeface(FontFactory.getFont(getApplicationContext(), FontFactory.Font.NOTOSANS_BOLD));
+            dramaTitle.setTypeface(FontFactory.getFont(getApplicationContext(), FontFactory.Font.NOTOSANS_BOLD));
 
-        context = getApplicationContext();
-        layoutManager = new LinearLayoutManager(this);
-        mdlRcycler.setLayoutManager(layoutManager);
-        dramaListAdapter = new DramaListAdapter(getApplicationContext() , datas );
-        mdlRcycler.setAdapter(dramaListAdapter);
+            context = getApplicationContext();
+            layoutManager = new LinearLayoutManager(this);
+            mdlRcycler.setLayoutManager(layoutManager);
+            dramaListAdapter = new DramaListAdapter(getApplicationContext() , datas );
+            mdlRcycler.setAdapter(dramaListAdapter);
 
-        for(int i=0;i<3;i++) {
-            dramaListAdapter.add(
-                    new DramaData(
-                    "https://tv.pstatic.net/thm?size=54x78&quality=5&q=https://ssl.pstatic.net/sstatic/keypage/image/dss/57/37/30/26/57_3373026_poster_image_1471395715777.jpg",
-                            "3화",
-                            "월요일",
-                            "informaionEnterChattingRoom",
-                            R.drawable.icon_clock
-            ));
+            for(int i=0;i<3;i++) {
+                dramaListAdapter.add(
+                        new DramaData(
+                                "http://img.kbs.co.kr/cms/drama/gurumi/view/preview/__icsFiles/thumbnail/2016/09/13/speci.jpg",
+                                "3화",
+                                "월요일",
+                                "informaionEnterChattingRoom",
+                                R.drawable.icon_clock
+                        ));
+            }
         }
-    }
-    @OnClick(R.id.mdl_back_btn)
-    public void mdlBackBtn(View v) {
-        finish();
-    }
+        @OnClick(R.id.mdl_back_btn)
+        public void mdlBackBtn(View v) {
+            finish();
+        }
 }
