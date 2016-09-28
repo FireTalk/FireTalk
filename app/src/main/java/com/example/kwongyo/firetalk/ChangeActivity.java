@@ -24,14 +24,4 @@ public class ChangeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pwchange);
         ButterKnife.bind(this);
     }
-
-    /*@OnClick
-    public void change_back_btn(View v){
-        finish();
-    }
-
-    @OnClick
-    public void change_btn(View v){
-
-    }*/
 }

@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="아이디   "
+            android:text="아이디"
             android:backgroundTint="#252525"
             android:textColor="#252525"
             android:textSize="14sp" />
@@ -87,7 +87,8 @@
             android:text="비밀번호"
             android:backgroundTint="#252525"
             android:textColor="#252525"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
         <EditText
             android:id="@+id/loginafter_password"
             android:layout_width="match_parent"
