@@ -9,20 +9,20 @@ package com.example.kwongyo.firetalk.activitySupport.main;
 /**
  * Created by Mathpresso1 on 2015-09-15.
  */
-
-import android.content.Context;
+/*import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 
 import com.example.kwongyo.firetalk.R;
-
+*/
 /**
  * AspectRatioCardView is a CardView with a constrained ratio of dimensions.
  * With this class you can create 1:1 (square), 4:3, 16:9 card views.
  * Ratio should be width/height. Eg: 0.75 for 4:3, 0.5625 for 16:9
  * Created by Furkan Tektas on 11/15/14.
  */
+/*
 public class AspectRatioCardView extends CardView {
     private float mRatio = 1.0f;
     public AspectRatioCardView(Context context) {
@@ -77,3 +77,4 @@ public class AspectRatioCardView extends CardView {
         );
     }
 }
+*/
