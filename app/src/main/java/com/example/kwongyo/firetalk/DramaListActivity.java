@@ -6,12 +6,16 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.kwongyo.firetalk.activitySupport.FontFactory;
-import com.example.kwongyo.firetalk.activitySupport.dramalist.DramaListAdapter;
 import com.example.kwongyo.firetalk.activitySupport.dramalist.DramaData;
+import com.example.kwongyo.firetalk.activitySupport.dramalist.DramaListAdapter;
 
 import java.util.ArrayList;
 
@@ -23,6 +27,9 @@ import butterknife.OnClick;
  * Created by kwongyo on 2016-09-16.
  */
     public class DramaListActivity extends AppCompatActivity {
+
+        @Bind(R.id.broadcast_link)
+        TextView broadLink;
 
         @Bind(R.id.mdl_recycler)
         RecyclerView mdlRcycler;
@@ -59,9 +66,19 @@ import butterknife.OnClick;
                                 R.drawable.icon_clock
                         ));
             }
+            text_concept();                         //하이퍼링크
         }
         @OnClick(R.id.mdl_back_btn)
         public void mdlBackBtn(View v) {
             finish();
         }
+
+        // 하이퍼링크 및 언더바
+        public void text_concept(){
+            SpannableString content1 = new SpannableString("MBC 다시보기");
+            content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
+            broadLink.setText(content1);
+            broadLink.setText(Html.fromHtml("<a href=\"http://www.imbc.com\">MBC</a>"));
+            broadLink.setMovementMethod(LinkMovementMethod.getInstance());
+         }
 }
